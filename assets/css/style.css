@@ -126,7 +126,157 @@ header .wrapper {
   main styling starts here
 =================================*/
 
+.posts {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}
 
+.posts li {
+  width: 30%;
+  margin-bottom: 27px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.posts li:hover {
+  box-shadow: 0 20px 20px 0 rgba(0,0,0,0.2), 0 10px 30px 0 rgba(0,0,0,0.19);
+}
+
+.posts-slider {
+  display: none; 
+  padding: 0 0;
+  position: relative;
+  background: rgba(0,0,0,0.5);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.modalSlider {
+  display: flex;
+  transition: all 0.4s ease;
+  width: 30%;
+  margin: 80px auto;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  opacity: 1;
+  animation-name: slide;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes slide {
+  0% {
+    top: -50%;
+    opacity: 0;
+  }
+
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+} 
+
+.show { display: flex; }
+
+.slide {
+  min-width: 100%;
+  transform: translateX(-100%);
+  transition: all .3s ease;
+}
+
+.btn {
+  width: auto;
+  top: 43%;
+  position: absolute;
+  cursor: pointer;
+  color: white;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  font-size: 32px;
+  text-indent: -9999px;
+}
+
+#prev::before {
+  content: '\f053';
+  font-family: fontAwesome;
+  float: left;
+  text-indent: 0;
+}
+#next::before {
+  content: '\f054';
+  font-family: fontAwesome;
+  float: left;
+  text-indent: 0;
+}
+
+#prev { 
+  padding: 10px 20px 5px 15px;
+  left: 20%; 
+}
+
+#next {
+  padding: 10px 15px 5px 20px;
+  right: 20%;
+}
+
+.btn:hover { background-color: rgba(0,0,0,0.5); }
+
+.slide-dots {
+  padding: 10px 0;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  bottom: 40px;
+  left: 0;
+}
+
+.dot {
+  text-align: center;
+  cursor: pointer;
+  height: 14px;
+  width: 14px;
+  margin: 0 4px;
+  background: rgba(255,255,255,0.4);
+  border-radius: 50%;
+  display: inline-block;
+  text-indent: -9999px;
+  transition: background-color 0.3s ease;
+}
+
+.close {
+  position: absolute;
+  right: 25%;
+  top: 80px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+  cursor: pointer;
+  text-indent: -9999px;
+}
+
+.close::before,
+.close::after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.close:hover { opacity: 1; }
+.close::before{ transform: rotate(45deg); }
+.close::after{ transform: rotate(-45deg); }
+.transition-active { transition: transform 0.4s ease-in-out; }
+.transition-inactive { transition: all 0s; }
+.dot-active { background: #fff;}
+.dot:hover {background-color: rgba(0,0,0,0.3);}
 
 /*=================================
   main styling ends here
